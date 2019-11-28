@@ -702,6 +702,7 @@ public class ORSGraphHopper extends GraphHopper {
 
 	private boolean isPartitionPrepared() {
 		//TODO
+//		return true;
 //		return false;
 		return "true".equals(ghStorage.getProperties().get(Partition.PREPARE + "done"));
 	}
@@ -781,6 +782,14 @@ public class ORSGraphHopper extends GraphHopper {
 			ecc = new Eccentricity(ghStorage);
 		if(!ecc.loadExisting(weighting)) {
 			ecc.calcEccentricities(ghStorage, ghStorage.getBaseGraph(), weighting, flagEncoder, traversalMode, isochroneNodeStorage, cellStorage);
+			Contour contour = new Contour(ghStorage, ghStorage.getNodeAccess(), isochroneNodeStorage, cellStorage);
+			contour.calcCellContourPre();
+		}
+		else if(cellStorage.isCorrupted()){
+//			cellStorage.init();
+			cellStorage.reset();
+			cellStorage.calcCellNodesMap();
+			cellStorage.flush();
 			Contour contour = new Contour(ghStorage, ghStorage.getNodeAccess(), isochroneNodeStorage, cellStorage);
 			contour.calcCellContourPre();
 		}
