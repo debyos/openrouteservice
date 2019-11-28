@@ -702,9 +702,9 @@ public class ORSGraphHopper extends GraphHopper {
 
 	private boolean isPartitionPrepared() {
 		//TODO
-//		return true;
+		return true;
 //		return false;
-		return "true".equals(ghStorage.getProperties().get(Partition.PREPARE + "done"));
+//		return "true".equals(ghStorage.getProperties().get(Partition.PREPARE + "done"));
 	}
 
 	public void initPartitioningFactoryDecorator() {
