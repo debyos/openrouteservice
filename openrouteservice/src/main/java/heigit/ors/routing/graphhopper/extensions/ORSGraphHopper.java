@@ -785,14 +785,14 @@ public class ORSGraphHopper extends GraphHopper {
 			Contour contour = new Contour(ghStorage, ghStorage.getNodeAccess(), isochroneNodeStorage, cellStorage);
 			contour.calcCellContourPre();
 		}
-		else if(cellStorage.isCorrupted()){
-//			cellStorage.init();
-			cellStorage.reset();
-			cellStorage.calcCellNodesMap();
-			cellStorage.flush();
-			Contour contour = new Contour(ghStorage, ghStorage.getNodeAccess(), isochroneNodeStorage, cellStorage);
-			contour.calcCellContourPre();
-		}
+//		else if(cellStorage.isCorrupted()){
+////			cellStorage.init();
+//			cellStorage.reset();
+//			cellStorage.calcCellNodesMap();
+//			cellStorage.flush();
+//			Contour contour = new Contour(ghStorage, ghStorage.getNodeAccess(), isochroneNodeStorage, cellStorage);
+//			contour.calcCellContourPre();
+//		}
 		this.eccentricity = ecc;
 	}
 
